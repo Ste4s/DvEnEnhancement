@@ -1,0 +1,19 @@
+{
+  "name": "Dvorak Evernote extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Allows Dvorak keyboard users to use standard italic and underline keyboard shortcuts when editing notes on Evernote.com.",
+  "permissions": ["webNavigation"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128":"icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.evernote.com/*"],
+      "js": ["contentScript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
