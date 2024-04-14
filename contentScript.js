@@ -1,6 +1,13 @@
+// DvEnEnhancement: browser extension to fix keyboard shortcuts for Evernote Dvorak users
+// ------------------------------
+// This is a keyboard event handler that clicks the button in the toolbar when you hit
+// the keyboard shortcut to format text italic or underline.
+
+
+// This function is the event handler for the keyboard shortcuts.
 async function dvEnShortcutsHandler(event) {
     // Set this true to enable logging
-    const debugMode = true;
+    const debugMode = false;
 
     function debugLog(...messages) {
         if(debugMode) {
@@ -8,11 +15,13 @@ async function dvEnShortcutsHandler(event) {
         }
     }
 
+    // Check if the user is on a Mac or Windows/Linux
     const isMac = navigator.userAgent.toLowerCase().includes('mac');
     debugLog("Operating System:", isMac ? "MacOS" : "Windows/Linux");
     const modifierPressed = isMac ? event.metaKey : event.ctrlKey;
     const buttonActions = { 'i': "italic", 'u': "underline" };
 
+    // This function clicks the button in the toolbar to format text italic or underline.
     const performButtonAction = async function(buttonId, actionName) {
         let button = document.getElementById(buttonId);
         if (!button) {
@@ -48,7 +57,7 @@ async function dvEnShortcutsHandler(event) {
     }
 };
 
-// To add, run:
+// To enable the keyboard shortcuts, run:
 document.addEventListener('keydown', dvEnShortcutsHandler);
 
 // To remove, run:
