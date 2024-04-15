@@ -1,6 +1,6 @@
 # Dvorak keyboard enhancement for Evernote
 
-This extension enhances Dvorak keyboard shortcut support when editing notes on [Evernote.com](Evernote.com). 
+This [Chrome extension](https://chromewebstore.google.com/detail/dvorak-evernote-extension/logfaanhcndicfilipkclgchponfgiem) enhances Dvorak keyboard shortcut support when editing notes on [Evernote.com](Evernote.com). 
 
 It's a small improvement for a tiny subset of Evernote users: Dvorak keyboardists who want to use standard underline or italic keyboard shortcuts, which currently do not work as expected in Evernote:
 
