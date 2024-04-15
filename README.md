@@ -62,7 +62,7 @@ If you want to remove the automation, just restart Evernote. You may need to ter
 
 ## Can I install the extension manually, instead of from the Chrome Store?
 
-Yes. Use the `git` command to check out this repo or [download a release](releases) and extract the zip file from your local file system. Once you have the folder on your hard drive:
+Yes. Use the `git` command to check out this repo or [download a release](https://github.com/Ste4s/DvEnEnhancement/releases) and extract the zip file from your local file system. Once you have the folder on your hard drive:
 
 1. Open the extensions configuration in your browser.
 2. Enable the **Developer Mode** switch.
