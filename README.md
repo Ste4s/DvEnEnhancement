@@ -23,7 +23,7 @@ Evernote has excellent keyboard shortcut support for text formatting, but the it
 
 We have no way of knowing how many requests have been received by Evernote Support. When the author of this extension reported the problem to Evernote, the issue was acknowledged, but closed automatically when the next version of Evernote released, with the expectation that a new issue would be opened if the problem persisted. 
 
-However, Evernote is a web application (even the desktop version, which is a lightweight web browser named Electron that only web shows pages from Evernote.com). Web browsers are extensible, which means you can change it if you know how.
+However, Evernote is a web application (even the desktop version, which is a lightweight web browser named [Electron](https://www.electronjs.org/) that only web shows pages from Evernote.com). Web browsers are extensible, which means you can change it if you know how.
 
 ## How does this extension work?
 
@@ -44,32 +44,6 @@ The gist of the code is as follows. The extension:
 3. If the keyboard shortcut for underline or italic is pressed, locate the corresponding button on the toolbar. If not found (for example, if the window is not wide enough to include the text formatting buttons), automatically click the "More" button on the toolbar, which is opened behind the Evernote application, so as not to create a visual disturbance on-screen) and then locate the italic and underline buttons.
 4. If the appropriate button is there, automatically click it. This toggles underline and italic on and off as you press the hotkey, in effect restoring the shortcut functionality.
 5. If the button is not found, do nothing.
-
-## Will this work in the Evernote app?
-
-The Evernote app does not support extensions. However, as a workaround, you can manually add code from this extension to the Evernote application when it starts. The fix will remain until the next time Evernote exits. This could be better, but it may work for you? Or just use Evernote in a web browser with this extension.
-
-Here are the steps to manually add the code to the Evernote app itself. These steps must be performed every time Evernote launches. If these steps seem intimidating or too technical, this may not be a good solution for you. You should only do this if you understand what you're doing. In technical terms, you're adding a keyboard listener to automate the toolbar when you press the underline or italic keyboard shortcuts.
-
-1. Start the Evernote application.
-2. With the Evernote application focused, press the **F12** on your keyboard. Depending on your keyboard, you may need to hold down the **Fn** key before pressing **F12**.
-3. The Electron developer tools panel appears. At the top of the developer tools panel, you should see a tab named **Console**. If you don't see it, click the **>>** tab and you may see a menu that includes **Console**. Click **Console**.
-4. At the bottom of the **Console** tab, you should see a blank line with a **>** prompt. Click after the **>** prompt so the cursor shows up there and you can type.
-5. Copy and paste the code from [contentScript.js](https://raw.githubusercontent.com/Ste4s/DvEnEnhancement/main/contentScript.js) into the console window and press **Enter**.
-6. Close the developer tools by pressing **F12** (or **Fn**+**F12**) again.
-
-If you want to remove the automation, just restart Evernote. You may need to terminate the Evernote app with Task Manager (Windows) or Activity Monitor (Mac) if you have Evernote configured to stay running in the background.
-
-## Can I install the extension manually, instead of from the Chrome Store?
-
-Yes. Use the `git` command to check out this repo or [download a release](https://github.com/Ste4s/DvEnEnhancement/releases) and extract the zip file to a folder on your local file system. Then:
-
-1. Open the extensions configuration in your browser.
-2. Enable the **Developer Mode** switch.
-3. Click the **Load Unpacked** button.
-4. Select the folder where you extracted the zip file. You should now see "Dvorak Evernote Extension" in the extension list.
-5. Close the Extensions tab.
-6. Reload any Evernote tabs to ensure the extension activates.
 
 ## Usage
 
@@ -106,10 +80,6 @@ The extension only activates when the URL includes `evernote.com/client/web`. He
 
 So you can see that this extension has a very narrowly defined audience (Evernote Dvorak keyboardists) and scope for very specific pages (editing notes on Evernote.com).
 
-## How can I report issues with this extension?
-
-Visit the GitHub project **Issues** tab. Enter your question or details and create a new issue. Be sure to mention which platform you're using (Mac, Windows, Linux), browser version, and a description of the issue you're seeing. Include a list of steps that can reproduce the problem if you can.
-
 ## Does this extension include any tracking, ads, or other surprises?
 
 No. This extension just adds a link between two keyboard shortcuts and the Evernote toolbar. It does not track anything, send information, load things, or interact with anything else in your browser or notes.
@@ -141,3 +111,28 @@ Nobody would do that intentionally, but it is possible to have this extension en
 That's because the keyboard shortcuts in Evernote work fine for the Qwerty keymap, and this extension adds an automated click on the toolbar every time you press Ctrl+I or Ctrl+U, which effectively cancels out the formatting.
 
 If you regularly switch between Dvorak and Qwerty layouts, you may encounter this scenario. When using a Qwerty layout, disable or remove this extension.
+
+## Will this extension work in the Evernote desktop app?
+
+The short answer is no.
+
+While the Evernote app does not support extensions directly, it's built on the open-source [Electron](https://www.electronjs.org/) framework, which you can think of as a lightweight web browser restricted to Evernote.com.
+
+There are ways to extend an Electron app locally that would not be endorsed or recommended by the Evernote developers, and you definitely should not go down this rabbit hole, especially not with some code you found on the internet, unless you knew exactly what you were doing and had reviewed the JavaScrit. The best course of action is to wait until the Evernote developers fix the underlying issue.
+
+However, if you were to proceed, the following steps must be performed every time Evernote starts. In technical terms, you're adding a keyboard listener to automate the toolbar when you press the underline or italic keyboard shortcuts.
+
+1. Start the Evernote application.
+2. With the Evernote application focused, press the **F12** on your keyboard. Depending on your keyboard, you may need to hold down the **Fn** key before pressing **F12**.
+3. The Electron developer tools panel appears. At the top of the developer tools panel, you should see a tab named **Console**. If you don't see it, click the **>>** tab and you may see a menu that includes **Console**. Click **Console**.
+4. At the bottom of the **Console** tab, you should see a blank line with a **>** prompt. Click after the **>** prompt so the cursor shows up there and you can type.
+5. Copy and paste the code from [contentScript.js](https://raw.githubusercontent.com/Ste4s/DvEnEnhancement/main/contentScript.js) into the console window and press **Enter**.
+6. Close the developer tools by pressing **F12** (or **Fn**+**F12**) again.
+
+If you want to remove the automation, just restart Evernote. You may need to terminate the Evernote app with Task Manager (Windows) or Activity Monitor (Mac) if it stays running in the background after you close the window.
+
+A very technical user or developer could configure Electron to inject the code directly using a tool like [electron-inject](https://github.com/tintinweb/electron-inject). However, there are privacy and security implications that must be understood and mitigated before using this approach.
+
+## How can I report issues with this extension?
+
+Visit the GitHub project **Issues** tab. Enter your question or details and create a new issue. Be sure to mention which platform you're using (Mac, Windows, Linux), browser version, and a description of the issue you're seeing. Include a list of steps that can reproduce the problem if you can.
