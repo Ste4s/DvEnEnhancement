@@ -13,7 +13,7 @@ This extension addresses a very specific Evernote issue in the unlikely event th
 
 Almost certainly, you don't. No matter how large the number of Evernote users, those who use a Dvorak layout are just a tiny fraction. Of that tiny fraction, the number that want to use shortcuts for underlining or italics is even smaller. Rounding up, there are probably only three people in the whole world who would use this extension. However, one of the three has enough automation experience and interest in building it.
 
-Evernote has excellent keyboard shortcut support for text formatting, but the italic and underline shortcuts have been broken on Dvorak layouts for years, and it seems unlikely to be fixed any time soon. That's because the number of Evernote users with Dvorak keyboard layouts is vanishingly small. Unfortunately, on modern software development teams, low-priority tasks can langish indefinitely because there's always something more important for the development team to work on. Here are links to discussions about the non-functional shortcuts on Dvorak layouts from the Evernote community forums:
+Evernote has excellent keyboard shortcut support for text formatting, but the italic and underline shortcuts have been broken on Dvorak layouts for years, and it seems unlikely to be fixed any time soon. That's because the number of Evernote users with Dvorak keyboard layouts is vanishingly small. Unfortunately, on modern software development teams, low-priority tasks can languish indefinitely because there's always something more important for the development team to work on. Here are links to discussions about the non-functional shortcuts on Dvorak layouts from the Evernote community forums:
 
 - October, 2020: [Keyboard Shortcut Issues When Using Dvorak](https://discussion.evernote.com/forums/topic/130012-keyboard-shortcut-issues-when-using-dvorak/)
 - March, 2021: [Dvorak shortcuts unavailable with Dvorak keyboard layout](https://discussion.evernote.com/forums/topic/134735-keyboard-shortcuts-unavailable-with-dvorak-keyboard-layout/)
@@ -135,4 +135,4 @@ A very technical user or developer could configure Electron to inject the code d
 
 ## How can I report issues with this extension?
 
-Visit the GitHub project **Issues** tab. Enter your question or details and create a new issue. Be sure to mention which platform you're using (Mac, Windows, Linux), browser version, and a description of the issue you're seeing. Include a list of steps that can reproduce the problem if you can.
+Visit the GitHub project **Issues** tab. Enter your question or details and create a new issue. Be sure to mention which platform you're using (Mac, Windows, Linux), browser version, and a description of the issue you're seeing. Include a list of steps that can reproduce the problem.
