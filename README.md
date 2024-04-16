@@ -92,7 +92,7 @@ This extension is expected to work in Chromium-based browsers like Google Chrome
 
 ## Which browsers are currently not supported?
 
-There is currently no extension for Firefox or Safari. It may be possible to add support in the future, but for now, manually inject the code directly into the Firefox or Safari using the steps outlined above for the [Evernote app](#Will-this-work-in-the-Evernote-app). 
+There is currently no extension for Firefox or Safari. It may be possible to add support in the future, but for now, manually inject the code directly into the Firefox or Safari using the steps outlined below for the [Evernote desktop app](#Will-this-work-in-the-Evernote-desktop-app). 
 
 This is ironic, because the issue with shortcuts in Evernote for Dvorak persists because this issue affects too few users to warrant the development team spending time on it.
 
@@ -100,7 +100,7 @@ This is ironic, because the issue with shortcuts in Evernote for Dvorak persists
 
 If you have a keyboard that supports the Dvorak layout, like the [Kinesis Advantage2](https://kinesis-ergo.com/shop/advantage2/), the Evernote keyboard shortcuts work as expected, and you don't need this extension.
 
-The keyboard shortcuts work because when you have a Dvorak-specific keyboard, your operating system stays configured to accept input using the Qwerty layout, and the keyboard does the Dvorak key assignment for you. In other words, you press the 'I' key on the Dvorak keyboard, and keyboard sends the 'G' key.
+The keyboard shortcuts work because when you have a Dvorak-specific keyboard, your operating system stays configured to accept input using the Qwerty layout, and the keyboard does the Dvorak translation for you. In other words, you press the 'I' key on the Dvorak keyboard, and keyboard sends the 'G' key.
 
 The Kinesis Advantage2 can switch between Dvorak or Qwerty modes, so even if you have one of these keyboards, you may decide to configure your operating system to use the Dvorak keyboard layout because then all connected keyboards (e.g. a built-in keyboard plus an external USB keyboard) will use the same layout. So even if you have one of these keyboards, you may still want to use this extension.
 
