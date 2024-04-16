@@ -118,7 +118,7 @@ The short answer is no.
 
 While the Evernote app does not support extensions directly, it's built on the open-source [Electron](https://www.electronjs.org/) framework, which you can think of as a lightweight web browser restricted to Evernote.com.
 
-There are ways to extend an Electron app locally that would not be endorsed or recommended by the Evernote developers, and you definitely should not go down this rabbit hole, especially not with some code you found on the internet, unless you knew exactly what you were doing and had reviewed the JavaScrit. The best course of action is to wait until the Evernote developers fix the underlying issue.
+There are ways to extend an Electron app locally that would not be endorsed or recommended by the Evernote developers, and you definitely should not go down this rabbit hole, especially not with some code you found on the internet, unless you knew exactly what you were doing and had reviewed the JavaScript. The best course of action is to wait until the Evernote developers fix the underlying issue.
 
 However, if you were to proceed, the following steps must be performed every time Evernote starts. In technical terms, you're adding a keyboard listener to automate the toolbar when you press the underline or italic keyboard shortcuts.
 
