@@ -29,9 +29,9 @@ However, Evernote is a web application (even the desktop version, which is a lig
 
 This extension does not change Evernote or your notes. It is a browser automation that activates when edit notes on Evernote.com and press `Ctrl+I` (`Cmd+I`) to make text italic or `Ctrl+U` (`Cmd+U`) to make text underlined. This extension simply clicks the underline or italic buttons on the Evernote toolbar for you when you press either keyboard shortcut.
 
-This extra link between the keyboard shortcut is what makes the keyboard shortcuts for underline and italic funtion as expected.
+This extra link between the keyboard shortcut is what makes the keyboard shortcuts for underline and italic work as expected.
 
-It's a certainly a kludge, but a simple workaround that works.
+It's a certainly a kludge, but it's a simple workaround that works.
 
 ## Why should I trust you?
 
@@ -57,18 +57,15 @@ If you want to disable or remove the extension, return to the browser Extensions
 
 ## When does this extension activate, and what permissions does it use?
 
-The permissions are defined in [manifest.json](manifest.json). When you read the manifest, you can see that this extension requests no permissions from the browser. If you're familiar with JSON syntax, you can see the permissions list below is empty:
+Extension permissions are defined in [manifest.json](manifest.json). When you read the manifest, you can see that this extension requests no extra permissions from the browser. If you're familiar with JSON syntax, you can see the permissions list below is empty:
 
 ```json
 "permissions": [],
 ```
 
-Your browser activates the extension only under the following conditions:
+Below that is the only permission used by the extension, which requests that the extension is only activated when the URL is under evernote.com/client/web. That's the URL your browser will show when you're editing your notes on Evernote.com. Using this permission, the browser automatically turns the extension off if you go to the main page at Evernote.com. The extension is not needed there, because it's only needed when typing in the note editor.
 
-1. The current page is at Evernote.com.
-2. The current page is viewing or editing your notes. For example, if you go to the main page at Evernote.com, the extension will be disabled because it's not needed. 
-
-The extension only activates when the URL includes `evernote.com/client/web`. Here is the part of [manifest.json](manifest.json) that defines the rule:
+Here is the part of [manifest.json](manifest.json) that defines the rule:
 
 ```json
 "content_scripts": [

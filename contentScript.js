@@ -1,27 +1,26 @@
-// DvEnEnhancement: browser extension to fix keyboard shortcuts for Evernote Dvorak users
-// ------------------------------
-// This is a keyboard event handler that clicks the button in the toolbar when you hit
-// the keyboard shortcut to format text italic or underline.
+// DvEnEnhancement: a Chromium browser extension to fix broken
+// keyboard shortcuts for Evernote Dvorak users
+// ---------------------------------------------------------------------
+// Project link: https://github.com/Ste4s/DvEnEnhancement
+// ---------------------------------------------------------------------
+// It's a keyboard event handler that clicks the button in the Evernote 
+// toolbar when you hit the keyboard shortcuts to format italic or underline.
 
 
-// This function is the event handler for the keyboard shortcuts.
+// This script is injected into the Evernote web page to enable the keyboard shortcuts.
 async function dvEnShortcutsHandler(event) {
+
     // Set this true to enable logging
     const debugMode = false;
 
+    // This function logs messages to the web console if debugMode is enabled.
     function debugLog(...messages) {
         if(debugMode) {
             console.log("DV-EN-Extension: ", ...messages);
         }
     }
 
-    // Check if the user is on a Mac or Windows/Linux
-    const isMac = navigator.userAgent.toLowerCase().includes('mac');
-    debugLog("Operating System:", isMac ? "MacOS" : "Windows/Linux");
-    const modifierPressed = isMac ? event.metaKey : event.ctrlKey;
-    const buttonActions = { 'i': "italic", 'u': "underline" };
-
-    // This function clicks the button in the toolbar to format text italic or underline.
+    // This function clicks the the toolbar to format text italic or underline.
     const performButtonAction = async function(buttonId, actionName) {
         let button = document.getElementById(buttonId);
         if (!button) {
@@ -48,8 +47,15 @@ async function dvEnShortcutsHandler(event) {
         }
     }
 
-    // When activated, click toolbar italic button (id `qa-ITALIC_TEXT_BTN`) or underline button (id `qa-UNDERLINE_TEXT_BTN`).
-    // If not visible, activate the More button (id `qa-OVERFLOW_BTN`) to expose the text formatting options,
+    // Check if the user is on a Mac or Windows/Linux
+    const isMac = navigator.userAgent.toLowerCase().includes('mac');
+    debugLog("Operating System:", isMac ? "MacOS" : "Windows/Linux");
+    const modifierPressed = isMac ? event.metaKey : event.ctrlKey;
+    const buttonActions = { 'i': "italic", 'u': "underline" };
+
+    // When activated, click toolbar italic button (id `qa-ITALIC_TEXT_BTN`) or 
+    // underline button (id `qa-UNDERLINE_TEXT_BTN`). If not visible, activate 
+    // the More button (id `qa-OVERFLOW_BTN`) to expose the text formatting options,
     // then click italic button (id `italic`) or underline button (id `underline`). 
     if (modifierPressed && buttonActions[event.key.toLowerCase()]) {
         debugLog(`Detected shortcut: Cmd+${event.key.toUpperCase()} or Ctrl+${event.key.toUpperCase()} for ${buttonActions[event.key.toLowerCase()].charAt(0).toUpperCase() + buttonActions[event.key.toLowerCase()].slice(1)}`);
