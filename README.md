@@ -92,7 +92,7 @@ This extension is expected to work in Chromium-based browsers like Google Chrome
 
 ## Which browsers are currently not supported?
 
-There is currently no extension for Firefox or Safari. It may be possible to add support in the future, but for now, manually inject the code directly into the Firefox or Safari using the steps outlined below for the [Evernote desktop app](#Will-this-work-in-the-Evernote-desktop-app). 
+There is currently no extension for Firefox or Safari. It may be possible to add support in the future, but for now, manually inject the code directly into the Firefox or Safari using the steps outlined below for the [Evernote desktop app](#will-this-extension-work-in-the-evernote-desktop-app). 
 
 This is ironic, because the issue with shortcuts in Evernote for Dvorak persists because this issue affects too few users to warrant the development team spending time on it.
 
