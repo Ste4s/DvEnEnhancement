@@ -17,5 +17,13 @@
       "js": ["contentScript.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{40f5623b-3167-4a88-9630-d430803e40fd}"
+    },
+    "safari": {
+      "id": "com.dvorak-evernote-enhancement"
+    }
+  }
 }
